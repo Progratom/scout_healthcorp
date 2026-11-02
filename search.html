@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyhledávač</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #fff; color: #202124; }
+        /* Úvodní obrazovka vyhledávače */
+        #home-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh; }
+        .logo { font-size: 4em; font-weight: bold; color: #4285f4; margin-bottom: 20px; letter-spacing: -2px; }
+        .logo span:nth-child(1) { color: #ea4335; }
+        .logo span:nth-child(2) { color: #fbbc05; }
+        .logo span:nth-child(3) { color: #34a853; }
+        .search-container { width: 100%; max-width: 580px; position: relative; }
+        .search-box { width: 100%; padding: 15px 20px; font-size: 16px; border: 1px solid #dfe1e5; border-radius: 24px; outline: none; box-shadow: 0 1px 6px rgba(32,33,36,.28); box-sizing: border-box; }
+        .search-btn { margin-top: 30px; padding: 10px 20px; background-color: #f8f9fa; border: 1px solid #f8f9fa; border-radius: 4px; color: #3c4043; cursor: pointer; font-size: 14px; }
+        .search-btn:hover { box-shadow: 0 1px 1px rgba(0,0,0,.1); border: 1px solid #dadce0; color: #202124; }
+        
+        /* Obrazovka s výsledky (skrytá) */
+        #results-screen { display: none; padding: 20px 40px; max-width: 800px; }
+        .top-bar { display: flex; align-items: center; border-bottom: 1px solid #ebebeb; padding-bottom: 20px; margin-bottom: 20px; }
+        .top-bar .logo-small { font-size: 1.5em; font-weight: bold; color: #4285f4; margin-right: 30px; cursor: pointer; }
+        .top-bar input { width: 100%; max-width: 600px; padding: 10px 15px; border-radius: 24px; border: 1px solid #dfe1e5; box-shadow: 0 1px 2px rgba(0,0,0,.1); outline: none; }
+        .result-item { margin-bottom: 30px; }
+        .result-url { color: #202124; font-size: 14px; margin-bottom: 2px; }
+        .result-title { color: #1a0dab; font-size: 20px; text-decoration: none; display: block; margin-bottom: 3px; }
+        .result-title:hover { text-decoration: underline; }
+        .result-desc { color: #4d5156; font-size: 14px; line-height: 1.58; }
+    </style>
+</head>
+<body>
+
+    <!-- ÚVODNÍ STRÁNKA -->
+    <div id="home-screen">
+        <div class="logo">O<span>S</span>I<span>N</span>T Vyhledávač</div>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-box" placeholder="Hledejte na webu..." onkeypress="handleKeyPress(event)">
+        </div>
+        <button class="search-btn" onclick="executeSearch()">Vyhledat</button>
+    </div>
+
+    <!-- STRÁNKA VÝSLEDKŮ -->
+    <div id="results-screen">
+        <div class="top-bar">
+            <div class="logo-small" onclick="location.reload()">OSINT</div>
+            <input type="text" id="topSearchInput" value="" onkeypress="handleKeyPressTop(event)">
+        </div>
+        <div id="results-list"></div>
+    </div>
+
+    <script>
+        // TVOJE LOKÁLNÍ DATABÁZE ČLÁNKŮ
+        const databaze = [
+            {
+                klicovaSlova: ["healthcorp", "krol", "viktor krol", "zdravotnictvi zlin"],
+                url: "index.html",
+                title: "HealthCorp | Hlavní stránka",
+                desc: "Oficiální stránky společnosti HealthCorp a.s. Inovace pro zdravější zítřek. Informace o vedení, nabídka služeb a divize HealthGuard."
+            },
+            {
+                klicovaSlova: ["viktor krol", "krol byznys", "roman toman", "toman auditor"],
+                url: "clanek1.html",
+                title: "Dravá štika nebo hrobař zlínské vědy? Kdo je Viktor Krol.",
+                desc: "Zlínský Byznys Dnes: Profil nového ředitele HealthCorp. Jeho finanční minulost a podezřelé vazby na auditora Romana Tomana z dob studií."
+            },
+            {
+                klicovaSlova: ["healthcorp uspory", "skrty", "healthcorp odpad", "ekologicka katastrofa"],
+                url: "clanek2.html",
+                title: "Škrty v HealthCorp: Genialita, nebo hazard se zdravím?",
+                desc: "Ekonomický Zpravodaj: Analýza drastických úspor v podniku. Odboráři varují před rezignací na bezpečnostní protokoly a nelegální likvidací odpadu."
+            },
+            {
+                klicovaSlova: ["healthcorp ekologie", "zero waste", "odpad zlin"],
+                url: "clanek3.html",
+                title: "Zelená laboratoř budoucnosti. HealthCorp hlásí rekordní snížení...",
+                desc: "PR Web: Společnost HealthCorp se stává lídrem v udržitelnosti. Revoluční in-house management zbytků a omezení odvozu biologického odpadu."
+            },
+            {
+                klicovaSlova: ["roman toman", "rt consulting", "roman toman wiki", "auditor zlin"],
+                url: "wiki_toman.html",
+                title: "Roman Toman – Wikipedie",
+                desc: "Mgr. Roman Toman je český nezávislý finanční auditor a jednatel společnosti RT Consulting s.r.o. Známý je svými vazbami na kontroverzní optimalizace podniků."
+            }
+        ];
+
+        function executeSearch() {
+            let query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if(!query) return;
+            processQuery(query);
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') executeSearch();
+        }
+
+        function handleKeyPressTop(e) {
+            if (e.key === 'Enter') {
+                let query = document.getElementById('topSearchInput').value.toLowerCase().trim();
+                if(query) processQuery(query);
+            }
+        }
+
+        function processQuery(query) {
+            // Najde všechny články, kde alespoň jedno klíčové slovo je obsaženo v hledaném dotazu (nebo naopak)
+            let nalezene = databaze.filter(polozka => 
+                polozka.klicovaSlova.some(slovo => query.includes(slovo) || slovo.includes(query))
+            );
+
+            if (nalezene.length > 0) {
+                // Přepnutí UI na výsledky
+                document.getElementById('home-screen').style.display = 'none';
+                document.getElementById('results-screen').style.display = 'block';
+                document.getElementById('topSearchInput').value = query;
+                
+                // Vykreslení odkazů
+                let html = `Vyhledáno přibližně ${nalezene.length} výsledků<br><br>`;
+                nalezene.forEach(item => {
+                    html += `
+                    <div class="result-item">
+                        <div class="result-url">${item.url}</div>
+                        <a href="${item.url}" class="result-title">${item.title}</a>
+                        <div class="result-desc">${item.desc}</div>
+                    </div>`;
+                });
+                document.getElementById('results-list').innerHTML = html;
+            } else {
+                // FALLBACK NA GOOGLE
+                window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(query);
+            }
+        }
+    </script>
+</body>
+</html>
