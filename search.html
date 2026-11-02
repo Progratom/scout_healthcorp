@@ -51,7 +51,7 @@
 
     <script>
         // TVOJE LOKÁLNÍ DATABÁZE ČLÁNKŮ
-        const databaze = [
+        /*const databaze = [
             {
                 klicovaSlova: ["healthcorp", "krol", "viktor krol", "zdravotnictvi zlin"],
                 url: "index.html",
@@ -81,6 +81,92 @@
                 url: "wiki_toman.html",
                 title: "Roman Toman – Wikipedie",
                 desc: "Mgr. Roman Toman je český nezávislý finanční auditor a jednatel společnosti RT Consulting s.r.o. Známý je svými vazbami na kontroverzní optimalizace podniků."
+            }
+        ];*/
+        const databaze = [
+            {
+                klicovaSlova: ["healthcorp", "health corp", "krol", "viktor krol", "zdravotnictvi zlin"],
+                url: "index.html",
+                title: "HealthCorp | Hlavní stránka",
+                desc: "Oficiální stránky společnosti HealthCorp a.s. Inovace pro zdravější zítřek. Informace o vedení, nabídka služeb a divize HealthGuard."
+            },
+            {
+                klicovaSlova: ["viktor krol", "krol byznys", "roman toman", "toman auditor"],
+                url: "article1.html",
+                title: "Dravá štika nebo hrobař zlínské vědy? Kdo je Viktor Krol.",
+                desc: "Zlínský Byznys Dnes: Profil nového ředitele HealthCorp. Jeho finanční minulost a podezřelé vazby na auditora Romana Tomana z dob studií."
+            },
+            {
+                klicovaSlova: ["healthcorp uspory", "skrty", "healthcorp odpad", "ekologicka katastrofa"],
+                url: "article2.html",
+                title: "Škrty v HealthCorp: Genialita, nebo hazard se zdravím?",
+                desc: "Ekonomický Zpravodaj: Analýza drastických úspor v podniku. Odboráři varují před rezignací na bezpečnostní protokoly a nelegální likvidací odpadu."
+            },
+            {
+                klicovaSlova: ["healthcorp ekologie", "zero waste", "odpad zlin"],
+                url: "article3.html",
+                title: "Zelená laboratoř budoucnosti. HealthCorp hlásí rekordní snížení...",
+                desc: "PR Web: Společnost HealthCorp se stává lídrem v udržitelnosti. Revoluční in-house management zbytků a omezení odvozu biologického odpadu."
+            },
+            {
+                klicovaSlova: ["healthcorp panika", "unik viru", "zlinsky kuryr", "zlin virus", "hc-prime"],
+                url: "article4.html",
+                title: "PANIKA NA KRAJI ZLÍNA! Unikl z laboratoří HealthCorp smrtící virus?",
+                desc: "Zlínský Kurýr: Dnešní noc se pro obyvatele v okolí komplexu HealthCorp změnila v noční můru. Krátce před 23:30 se rozezněly sirény..."
+            },
+            {
+                klicovaSlova: ["healthcorp cviceni", "izs zlin", "zlinsky denik cviceni"],
+                url: "article5.html",
+                title: "Cvičení IZS v areálu HealthCorp prověřilo připravenost na jedničku",
+                desc: "Zlínský Deník: Vedení společnosti HealthCorp chce uklidnit občany. Ve 23:30 proběhlo plánované cvičení firemní divize HealthGuard..."
+            },
+            {
+                klicovaSlova: ["healthcorp wiki", "synthomedix", "healthcorp majitel"],
+                url: "wiki_pages/wik_healthcorp.html",
+                title: "HealthCorp – Wikipedie",
+                desc: "HealthCorp a.s. (dříve SynthoMedix) je česká farmaceutická společnost. Byla založena v roce 2005 Antonínem Holasem."
+            },
+            {
+                klicovaSlova: ["viktor krol wiki", "krol zivotopis", "ceo healthcorp"],
+                url: "wiki_pages/wik_krol.html",
+                title: "Viktor Krol – Wikipedie",
+                desc: "Ing. Viktor Krol (* 1985) je český podnikatel a krizový manažer. Je známý svými nekompromisními metodami a masivním snižováním nákladů."
+            },
+            {
+                klicovaSlova: ["antonin holas", "holas wiki", "byvaly reditel synthomedix"],
+                url: "wiki_pages/wik_holas.html",
+                title: "Antonín Holas – Wikipedie",
+                desc: "prof. RNDr. Antonín Holas, DrSc. (* 1958) je český biochemik a bývalý zakladatel společnosti SynthoMedix."
+            },
+            {
+                klicovaSlova: ["roman toman", "rt consulting", "roman toman wiki", "auditor zlin"],
+                url: "wiki_pages/wik_toman.html",
+                title: "Roman Toman – Wikipedie",
+                desc: "Mgr. Roman Toman je nezávislý finanční auditor. Známý svými vazbami na Viktora Krola a kontroverzními optimalizacemi."
+            },
+            {
+                klicovaSlova: ["ekonomicky zpravodaj wiki", "zpravodaj recenze"],
+                url: "wiki_pages/wik_zpravodaj.html",
+                title: "Ekonomický zpravodaj – Wikipedie",
+                desc: "Ekonomický zpravodaj je respektovaný český online deník, známý analytickým přístupem a vysokou mírou důvěryhodnosti (NFNZ: A)."
+            },
+            {
+                klicovaSlova: ["pr web wiki", "pr web recenze", "pr web co to je"],
+                url: "wiki_pages/wik_prweb.html",
+                title: "PR Web (zpravodajství) – Wikipedie",
+                desc: "PR Web je komerční platforma sloužící k distribuci sponzorovaného obsahu. Články neprochází redakční kontrolou."
+            },
+            {
+                klicovaSlova: ["zlinsky denik wiki", "zlin denik recenze"],
+                url: "wiki_pages/wik_denik.html",
+                title: "Zlínský deník – Wikipedie",
+                desc: "Zlínský deník jsou tradiční regionální noviny, které v oblasti byznysu často bez ověření přebírají firemní tiskové zprávy."
+            },
+            {
+                klicovaSlova: ["zlinsky kuryr wiki", "kuryr zlin bulvar"],
+                url: "wiki_pages/wik_kuryr.html",
+                title: "Zlínský kurýr – Wikipedie",
+                desc: "Zlínský kurýr je lokální krimi web. Ačkoliv má bulvární styl, často disponuje pravdivými úniky od interních informátorů."
             }
         ];
 
