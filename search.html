@@ -120,6 +120,7 @@
                 desc: "Mgr. Roman Toman je český nezávislý finanční auditor a jednatel společnosti RT Consulting s.r.o. Známý je svými vazbami na kontroverzní optimalizace podniků."
             }
         ];*/
+        // musí to být lokální takže je to holt nejjednodušší řešení
         const databaze = [
             {
                 klicovaSlova: ["healthcorp", "health corp", "krol", "viktor krol", "zdravotnictvi zlin"],
@@ -212,7 +213,25 @@
                 desc: "oddíl Zlínských skautů",
                 priorita: 10,
                 externi: true
-            }
+            },
+            {
+                klicovaSlova: ["hzs zlin", "hasici prohlaseni", "hasici healthcorp", "cviceni izs vyvraceno", "pozar zlin"],
+                url: "article6.html",
+                title: "HZS ZK: Žádné cvičení v areálu HealthCorp neproběhlo",
+                desc: "Prohlášení pro média: Sbor o cvičení neví, žádné hlášení nedostal a jeho jednotky do areálu nevyjížděly."
+            },
+            {
+                klicovaSlova: ["zdrava firma roku", "anketa zdrava firma", "healthcorp cena", "zdorava firma"],
+                url: "article7.html",
+                title: "HealthCorp zvítězil v prestižní anketě Zdravá firma roku 2024",
+                desc: "Zlínský Byznys Dnes: Odborná porota ocenila zero-waste program zlínského gigantu. „Je to pocta pro celý tým,“ říká Krol."
+            },
+            {
+                klicovaSlova: ["zdrava firma roku wiki", "anketa zdrava firma wiki", "business media zlin"],
+                url: "wiki_pages/wiki_soutez.html",
+                title: "Zdravá firma roku – Wikipedie",
+                desc: "Firemní anketa pořádaná od r. 2019. Hlavním partnerem je od roku 2024 společnost HealthCorp a.s."
+            },
         ];
 
         function executeSearch() {
@@ -232,11 +251,20 @@
             }
         }
 
+        function query_normalize(text) {
+            return String(text)
+                .toLowerCase()
+                .normalize('NFD')                  
+                .replace(/[\u0300-\u036f]/g, ''); 
+        }
+
+
         function processQuery(query) {
             // // Najde všechny články, kde alespoň jedno klíčové slovo je obsaženo v hledaném dotazu (nebo naopak)
             // let nalezene = databaze.filter(polozka => 
             //     polozka.klicovaSlova.some(slovo => query.includes(slovo) || slovo.includes(query))
             // );
+            query = query_normalize(query);
             let nalezene = databaze.filter(polozka => 
                 polozka.klicovaSlova.some(slovo => query.includes(slovo) || slovo.includes(query))
             );

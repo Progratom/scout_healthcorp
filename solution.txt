@@ -1,0 +1,18 @@
+- audit dělaný 31.04.(a pro rok končící až 01.09. o 4 měsíce později)
+- graf začínající s posunutou osou Y
+    - a neodpovídá číslům z tabulky
+    - relativní vůči absolutnímu číslu
+- audior a majitel firmy se znali
+- velké snížení nákladů "na bezpečnost"
+- zaplacený webový článek
+- kritický webový článek, ze kterého byl vzat jen jeden odstavec
+- vyjádření hasičského sboru ke článku
+- wiki healthcore odkazuje na PR článek
+- obrázek z gettyimg
+- dostat cenu od soutěžě kterou sama sponzoruje
+
+- whistleblower bude taky lhát, někde
+
+
+to-do
+upravit čísla v tabulce vůči grafům

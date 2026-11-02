@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zlínský Byznys Dnes</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; color: #111; line-height: 1.6; margin: 0; padding: 0; background-color: #e9ecef; }
+        header { background-color: #0d47a1; color: white; padding: 15px 20px; border-bottom: 5px solid #333; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 2em; font-weight: 900; text-transform: uppercase; }
+        .slogan { font-size: 0.9em; color: #bbd0f0; }
+        nav { background-color: #333; overflow: hidden; }
+        nav a { float: left; display: block; color: white; text-align: center; padding: 10px 15px; text-decoration: none; font-size: 0.9em; text-transform: uppercase; }
+        nav a:hover { background-color: #555; }
+        .container { max-width: 800px; margin: 20px auto; padding: 30px; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 4px; }
+        .ad { float: right; width: 200px; background: #f8f9fa; padding: 15px; margin-left: 25px; margin-bottom: 10px; border: 1px solid #ddd; text-align: center; font-size: 0.85em; color: #555; box-shadow: 2px 2px 5px rgba(0,0,0,0.05); }
+        h1 { font-size: 2.2em; line-height: 1.2; margin-bottom: 5px; }
+        .meta { font-size: 0.85em; color: #777; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
+
+        .tweet { background-color: white; border: 1px solid #cfd9de; border-radius: 12px; padding: 12px 16px; margin: 25px 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #0f1419; max-width: 500px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .tweet-header { display: flex; align-items: center; margin-bottom: 8px; }
+        .tweet-avatar { width: 48px; height: 48px; border-radius: 50%; background-color: #ccc; margin-right: 12px; background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="%23fff"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>'); background-size: cover; }
+        .tweet-userinfo { display: flex; align-items: center; flex-wrap: wrap; }
+        .tweet-name { font-weight: 700; margin-right: 4px; }
+        .tweet-verified { width: 18px; height: 18px; fill: #1d9bf0; margin-right: 4px; }
+        .tweet-handle, .tweet-dot, .tweet-time { color: #536471; font-size: 15px; }
+        .tweet-dot { margin: 0 4px; }
+        .tweet-body { font-size: 15px; line-height: 1.5; margin-bottom: 12px; word-wrap: break-word; }
+        .tweet-footer { display: flex; justify-content: space-between; color: #536471; font-size: 13px; max-width: 400px; padding-top: 10px; border-top: 1px solid #eff3f4; }
+        .tweet-footer span { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <div class="logo">Zlínský Byznys Dnes</div>
+            <div class="slogan">Nezávislé zprávy ze světa peněz</div>
+        </div>
+    </header>
+    <nav>
+        <a href="#">Zprávy</a>
+        <a href="#">Domácí</a>
+        <a href="#">Byznys</a>
+        <a href="#">Názory</a>
+    </nav>
+    <div class="container">
+        <div class="ad">
+            <strong>REKLAMA</strong><br><br>
+            Účetní služby <strong>T&amp;T</strong> – rychle a diskrétně.<br><br>
+            Chcete audit, který dává smysl?
+        </div>
+        <h1>HealthCorp se radoval! Zvítězil v prestižní anketě Zdravá firma roku 2024</h1>
+        <div class="meta">Zlínský Byznys Dnes | 28. 6. 2024 | Autor: Martin Vacek</div>
+
+        <p>Gala večer v zlínské Redutě korunoval šestý ročník ankety <strong>Zdravá firma roku</strong>, která oceňuje regionální společnosti za přínos ke zdraví, udržitelnosti a firemní zodpovědnosti. Hlavní cenu si tentokrát převzalo zlínské biotechnologické centrum HealthCorp a.s., které porotu přesvědčilo svým zero-waste programem.</p>
+
+        <p>„Letošní ročník měl rekordní kvalitu přihlášek. Zero-waste program HealthCorpu, díky němuž firma podle oficiálních čísel snížila objem odváženého nebezpečného odpadu o 60 %, byl jasným favoritem,“ uvedl ředitel ankety Josef Michalík ze společnosti Business Media Zlín s.r.o., která soutěž pořádá.</p>
+
+        <p>„Je to pocta pro celý tým. Moderní farmacie nemusí být zátěží pro životní prostředí a toto ocenění potvrzuje, že jdeme správnou cestou,“ řekl po převzetí skleněné sošky generální ředitel Ing. Viktor Krol, kterému gratulovala řada osobností zlínského byznysu.</p>
+
+        <p>Vítěz získává kromě trofeje také právo užívat ocenění v celé své komunikaci a medialní kampaň v partnerských titulech. HealthCorp tak navazuje na úspěšnou restrukturalizaci, o které jsme psali v profilu <a href="article1.html">Dravá štika nebo hrobař zlínské vědy? Kdo je Viktor Krol</a>.</p>
+
+        <div class="tweet">
+            <div class="tweet-header">
+                <div class="tweet-avatar"></div>
+                <div class="tweet-userinfo">
+                    <span class="tweet-name">Zdravá firma roku</span>
+                    <svg class="tweet-verified" viewBox="0 0 24 24"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.918-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.337 2.25c-.416-.165-.866-.25-1.336-.25-2.21 0-3.918 1.79-3.918 4 0 .495.084.965.238 1.4-1.273.65-2.148 2.02-2.148 3.6 0 1.46.827 2.766 2.044 3.395-.035.214-.054.436-.054.658 0 2.21 1.71 3.998 3.918 3.998.47 0 .92-.086 1.336-.25C9.182 21.585 10.49 22.5 12 22.5s2.816-.917 3.337-2.25c.416.165.866.25 1.336.25 2.21 0 3.918-1.79 3.918-4 0-.222-.02-.444-.054-.658 1.218-.63 2.044-1.936 2.044-3.395zm-11.752 4.417L7.25 13.42l1.41-1.41 2.088 2.086 5.836-5.835 1.412 1.41-7.248 7.247z"></path></g></svg>
+                    <span class="tweet-handle">@ZdravaFirmaRoku</span>
+                    <span class="tweet-dot">·</span>
+                    <span class="tweet-time">28. června</span>
+                </div>
+            </div>
+            <div class="tweet-body">🏆 Oficiálně: Zdravou firmou roku 2024 je HealthCorp a.s.! Gratulujeme vítězi a děkujeme všem partnerům za podporu. 🏆</div>
+            <div class="tweet-footer">
+                <span>💬 3</span>
+                <span>🔁 7</span>
+                <span>❤️ 41</span>
+                <span>📊 890</span>
+            </div>
+        </div>
+
+        <p style="font-size: 0.75em; color: #999;">Anketu Zdravá firma roku pořádá Business Media Zlín s.r.o. za podpory partnerů z řad zlínských firem.</p>
+    </div>
+</body>
+</html>
